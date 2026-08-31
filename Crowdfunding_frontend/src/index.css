@@ -1,0 +1,503 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   THEME VARIABLES
+========================================= */
+
+:root {
+  --accent-color: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #eef2ff;
+  --accent-text: #4f46e5;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* =========================================
+   DARK BACKGROUNDS
+========================================= */
+
+.dark .bg-white {
+  background-color: #1e293b;
+}
+
+.dark .bg-white\/80 {
+  background-color: rgb(30 41 59 / 0.8);
+}
+
+.dark .bg-white\/90 {
+  background-color: rgb(30 41 59 / 0.9);
+}
+
+.dark .bg-slate-50 {
+  background-color: #0f172a;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1e293b;
+}
+
+/* =========================================
+   IMPORTANT:
+   DO NOT globally change text-slate colors.
+   
+   Components already use:
+   text-slate-900
+   dark:text-white
+   
+   Tailwind's dark: classes should control
+   dark-mode text.
+========================================= */
+
+/* =========================================
+   DARK BORDERS
+========================================= */
+
+.dark .border-slate-200 {
+  border-color: #334155;
+}
+
+.dark .border-slate-100 {
+  border-color: #334155;
+}
+
+.dark .border-white\/40 {
+  border-color: rgb(71 85 105 / 0.5);
+}
+
+/* =========================================
+   DARK HOVER
+========================================= */
+
+.dark .hover\:bg-white:hover {
+  background-color: #1e293b;
+}
+
+.dark .hover\:bg-slate-50:hover {
+  background-color: #1e293b;
+}
+
+.dark .hover\:bg-slate-100:hover {
+  background-color: #334155;
+}
+
+.dark .hover\:border-slate-200:hover {
+  border-color: #475569;
+}
+
+/* =========================================
+   DARK INPUTS
+========================================= */
+
+.dark input,
+.dark textarea,
+.dark select {
+  color: #e2e8f0;
+  background-color: #0f172a;
+  border-color: #334155;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  background-color: #0f172a;
+}
+
+/* =========================================
+   DARK CARDS / SHADOWS
+========================================= */
+
+.dark .shadow-xl,
+.dark .shadow-2xl {
+  --tw-shadow-color: rgb(0 0 0 / 0.35);
+}
+
+/* =========================================
+   DARK COLORED BACKGROUNDS
+========================================= */
+
+.dark .bg-blue-50 {
+  background-color: rgb(30 64 175 / 0.18);
+}
+
+.dark .bg-indigo-50 {
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 12%,
+    transparent
+  );
+}
+
+.dark .bg-emerald-50 {
+  background-color: rgb(5 150 105 / 0.18);
+}
+
+.dark .bg-violet-50 {
+  background-color: rgb(124 58 237 / 0.18);
+}
+
+.dark .bg-orange-50 {
+  background-color: rgb(234 88 12 / 0.18);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.dark aside {
+  background-color: #111827;
+  border-color: #334155;
+}
+
+/* Sidebar backgrounds */
+
+.dark aside .bg-white {
+  background-color: #111827;
+}
+
+.dark aside .bg-white\/80 {
+  background-color: rgb(17 24 39 / 0.9);
+}
+
+.dark aside .bg-slate-50 {
+  background-color: #0f172a;
+}
+
+/* Sidebar borders */
+
+.dark aside .border-slate-200 {
+  border-color: #334155;
+}
+
+.dark aside .border-slate-100 {
+  border-color: #334155;
+}
+
+/* Sidebar hover */
+
+.dark aside .hover\:bg-slate-50:hover {
+  background-color: #1e293b;
+}
+
+.dark aside .hover\:bg-white:hover {
+  background-color: #1e293b;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.dark header {
+  background-color: rgb(15 23 42 / 0.9);
+  border-color: #334155;
+}
+
+.dark header .bg-white {
+  background-color: #1e293b;
+}
+
+.dark header .bg-white\/80 {
+  background-color: rgb(30 41 59 / 0.9);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.dark button:not(.bg-indigo-600):not(.bg-indigo-500) {
+  color: inherit;
+}
+
+/* =========================================
+   ACCENT SYSTEM
+========================================= */
+
+.accent-bg {
+  background-color: var(--accent-color) !important;
+}
+
+.accent-text {
+  color: var(--accent-text) !important;
+}
+
+.accent-border {
+  border-color: var(--accent-color) !important;
+}
+
+/* =========================================
+   INDIGO → SELECTED ACCENT
+========================================= */
+
+.bg-indigo-600 {
+  background-color: var(--accent-color) !important;
+}
+
+.bg-indigo-500 {
+  background-color: var(--accent-color) !important;
+}
+
+.text-indigo-600 {
+  color: var(--accent-text) !important;
+}
+
+.text-indigo-500 {
+  color: var(--accent-text) !important;
+}
+
+.border-indigo-600 {
+  border-color: var(--accent-color) !important;
+}
+
+.border-indigo-500 {
+  border-color: var(--accent-color) !important;
+}
+
+/* =========================================
+   INDIGO HOVER → SELECTED ACCENT
+========================================= */
+
+.hover\:bg-indigo-700:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.hover\:bg-indigo-600:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+.hover\:border-indigo-300:hover {
+  border-color: var(--accent-color) !important;
+}
+
+.hover\:border-indigo-500:hover {
+  border-color: var(--accent-color) !important;
+}
+
+/* =========================================
+   INDIGO FOCUS → SELECTED ACCENT
+========================================= */
+
+.focus\:border-indigo-500:focus {
+  border-color: var(--accent-color) !important;
+}
+
+.focus\:ring-indigo-100:focus {
+  --tw-ring-color: var(--accent-light) !important;
+}
+
+/* =========================================
+   INDIGO LIGHT BACKGROUND
+========================================= */
+
+.bg-indigo-50 {
+  background-color: var(--accent-light) !important;
+}
+
+/* =========================================
+   ACCENT GRADIENT
+========================================= */
+
+.from-indigo-600 {
+  --tw-gradient-from: var(--accent-color)
+    var(--tw-gradient-from-position) !important;
+
+  --tw-gradient-to: rgb(255 255 255 / 0)
+    var(--tw-gradient-to-position) !important;
+}
+
+.to-violet-600 {
+  --tw-gradient-to: var(--accent-hover)
+    var(--tw-gradient-to-position) !important;
+}
+
+/* =========================================
+   DARK ACCENT
+========================================= */
+
+.dark .dark\:text-indigo-400 {
+  color: var(--accent-color) !important;
+}
+
+.dark .dark\:border-indigo-400 {
+  border-color: var(--accent-color) !important;
+}
+
+.dark .dark\:bg-indigo-900\/30 {
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 20%,
+    transparent
+  ) !important;
+}
+
+/* =========================================
+   ACCENT RING
+========================================= */
+
+.ring-indigo-600 {
+  --tw-ring-color: var(--accent-color) !important;
+}
+
+/* =========================================
+   DENSITY
+========================================= */
+
+.density-compact .p-8 {
+  padding: 1.25rem;
+}
+
+.density-compact .p-6 {
+  padding: 1rem;
+}
+
+.density-compact .p-5 {
+  padding: 0.875rem;
+}
+
+.density-compact .gap-8 {
+  gap: 1.25rem;
+}
+
+.density-compact .gap-6 {
+  gap: 1rem;
+}
+
+/* =========================================
+   ABOUT PAGE - VALUE CARDS TEXT FIX
+   ========================================= */
+
+/* Light theme */
+.about-value-card h3 {
+  color: #0f172a;
+}
+
+.about-value-card p {
+  color: #475569;
+}
+
+/* Dark theme */
+.dark .about-value-card h3 {
+  color: #f8fafc !important;
+}
+
+.dark .about-value-card p {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================
+   ABOUT + CONTACT DARK MODE FIX
+   ========================================= */
+
+.dark .about-page .about-card h3 {
+  color: #f8fafc !important;
+}
+
+.dark .about-page .about-card p {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================
+   CONTACT PAGE
+   ========================================= */
+
+.dark .contact-page .contact-card h2,
+.dark .contact-page .contact-card h3 {
+  color: #f8fafc !important;
+}
+
+.dark .contact-page .contact-card p {
+  color: #cbd5e1 !important;
+}
+
+/* Contact form */
+
+.dark .contact-page input,
+.dark .contact-page textarea,
+.dark .contact-page select {
+  color: #f8fafc !important;
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+.dark .contact-page input::placeholder,
+.dark .contact-page textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* =========================================
+   ABOUT PAGE - DARK MODE CARD FIX
+========================================= */
+
+.dark .about-page .about-card h3 {
+  color: #f8fafc !important;
+}
+
+.dark .about-page .about-card p {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================
+   CONTACT PAGE - DARK MODE FIX
+========================================= */
+
+.dark .contact-page .contact-card h3 {
+  color: #f8fafc !important;
+}
+
+.dark .contact-page .contact-card p {
+  color: #cbd5e1 !important;
+}
+
+/* Contact form card */
+
+.dark .contact-page .contact-form-card h2 {
+  color: #f8fafc !important;
+}
+
+/* Contact form inputs */
+
+.dark .contact-page input,
+.dark .contact-page textarea {
+  color: #f8fafc !important;
+  background-color: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+.dark .contact-page input::placeholder,
+.dark .contact-page textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Contact form focus */
+
+.dark .contact-page input:focus,
+.dark .contact-page textarea:focus {
+  border-color: var(--accent-color) !important;
+}
+
+/* Contact page heading */
+
+.dark .contact-page > div > .text-center h1 {
+  color: #f8fafc;
+}
+
+.dark .contact-page > div > .text-center p {
+  color: #cbd5e1;
+}
