@@ -18,6 +18,11 @@ The platform provides a simple and modern crowdfunding experience where:
 - The application supports Light, Dark, and System themes
 - Users can customize the application accent color and dashboard density
 
+## 🌐 Live Demo
+
+🚀 **Deployed Application:**  
+https://crowdapp-frontend.onrender.com
+
 ## ✨ Features
 
 ### 👤 Authentication
