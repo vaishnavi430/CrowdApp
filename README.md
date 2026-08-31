@@ -323,5 +323,3 @@ Full-Stack Internship Project
 
 This project was created for educational and internship purposes.
 
-
-Then your GitHub repository will have a proper project description instead of just the source code.
