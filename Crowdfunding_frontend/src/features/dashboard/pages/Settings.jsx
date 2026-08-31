@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import SettingsHero from "../components/SettingsHero";
 import AccountSettingsCard from "../components/AccountSettingsCard";
@@ -9,23 +8,15 @@ import AppearanceSettingsCard from "../components/AppearanceSettingsCard";
 import PrivacySettingsCard from "../components/PrivacySettingsCard";
 import DangerZoneCard from "../components/DangerZoneCard";
 
+import api from "../../../services/api";
+
 const Settings = () => {
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const fetchSettings = async () => {
     try {
-      const token =
-        localStorage.getItem("token");
-
-      const response = await axios.get(
-        "http://localhost:5000/api/users/settings",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await api.get("/users/settings");
 
       setSettings(response.data.settings);
     } catch (error) {

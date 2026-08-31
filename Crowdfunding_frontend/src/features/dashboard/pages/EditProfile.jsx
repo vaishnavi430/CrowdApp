@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../../services/api";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -12,21 +13,13 @@ const EditProfile = () => {
     avatar: "",
   });
 
+  // Fetch existing profile
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const res = await api.get("/users/profile");
 
-        const res = await fetch(
-          "http://localhost:5000/api/users/profile",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const data = await res.json();
+        const data = res.data;
 
         if (data.success) {
           setForm({
@@ -38,13 +31,14 @@ const EditProfile = () => {
           });
         }
       } catch (err) {
-        console.error(err);
+        console.error("Failed to load profile:", err);
       }
     };
 
     fetchProfile();
   }, []);
 
+  // Handle input changes
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -52,25 +46,17 @@ const EditProfile = () => {
     });
   };
 
+  // Update profile
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem("token");
-
-      const res = await fetch(
-        "http://localhost:5000/api/users/profile",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(form),
-        }
+      const res = await api.put(
+        "/users/profile",
+        form
       );
 
-      const data = await res.json();
+      const data = res.data;
 
       if (data.success) {
         alert("Profile Updated Successfully");
@@ -79,7 +65,12 @@ const EditProfile = () => {
         alert(data.message);
       }
     } catch (err) {
-      console.error(err);
+      console.error("Failed to update profile:", err);
+
+      alert(
+        err.response?.data?.message ||
+          "Failed to update profile."
+      );
     }
   };
 

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import FeaturedCampaignCard from "./FeaturedCampaignCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Button from "../../../components/ui/Button";
+import api from "../../../services/api";
 
 const FeaturedCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -13,9 +13,7 @@ const FeaturedCampaigns = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/projects"
-        );
+        const response = await api.get("/projects");
 
         setCampaigns(response.data.projects);
       } catch (error) {

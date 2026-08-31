@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Clock, X } from "lucide-react";
-import axios from "axios";
+import api from "../../../services/api";
 
 const RecentSupporters = ({ campaignId }) => {
   const [supporters, setSupporters] = useState([]);
@@ -10,10 +10,9 @@ const RecentSupporters = ({ campaignId }) => {
 
   const fetchSupporters = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/projects/${campaignId}/backers`
+      const response = await api.get(
+        `/projects/${campaignId}/backers`
       );
-
       const donations = response.data.backers || [];
 
       // Keep all supporters in state

@@ -7,7 +7,7 @@ import {
   Megaphone,
   Send,
 } from "lucide-react";
-import axios from "axios";
+import api from "../../../services/api";
 
 const Toggle = ({ checked, onChange, disabled }) => {
   return (
@@ -16,18 +16,15 @@ const Toggle = ({ checked, onChange, disabled }) => {
       onClick={onChange}
       disabled={disabled}
       aria-pressed={checked}
-      className={`relative h-7 w-14 rounded-full transition-all duration-300 ${
-        checked ? "bg-indigo-600" : "bg-slate-300"
-      } ${
-        disabled
+      className={`relative h-7 w-14 rounded-full transition-all duration-300 ${checked ? "bg-indigo-600" : "bg-slate-300"
+        } ${disabled
           ? "cursor-not-allowed opacity-60"
           : "cursor-pointer"
-      }`}
+        }`}
     >
       <span
-        className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow transition-all duration-300 ${
-          checked ? "left-8" : "left-1"
-        }`}
+        className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow transition-all duration-300 ${checked ? "left-8" : "left-1"
+          }`}
       />
     </button>
   );
@@ -63,10 +60,9 @@ const NotificationSettingsCard = ({
     setSavingKey(key);
 
     try {
-      const token = localStorage.getItem("token");
 
-      const response = await axios.put(
-        "http://localhost:5000/api/users/settings",
+      const response = await api.put(
+        "/users/settings",
         {
           notifications: newSettings,
         },
@@ -102,7 +98,7 @@ const NotificationSettingsCard = ({
 
       alert(
         error.response?.data?.message ||
-          "Failed to update settings."
+        "Failed to update settings."
       );
     } finally {
       setSavingKey(null);
@@ -226,7 +222,7 @@ const NotificationSettingsCard = ({
               <Toggle
                 checked={
                   notificationSettings[
-                    option.key
+                  option.key
                   ] || false
                 }
                 disabled={isSaving}
