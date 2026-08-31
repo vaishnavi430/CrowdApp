@@ -2,7 +2,10 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const dns = require("dns");
 const connectDB = require("./config/db");
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 // Load environment variables
 dotenv.config();
